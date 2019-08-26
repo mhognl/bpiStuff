@@ -1,0 +1,48 @@
+auto lo
+iface lo inet loopback
+
+auto eth0.2
+iface eth0.2 inet manual
+    pre-up ip link add br53125 type bridge
+    pre-up ip link set wan master br53125
+    pre-up bridge vlan add vid 2 dev wan pvid untagged
+    pre-up bridge vlan del vid 1 dev wan
+    pre-up ip link set wan up
+    post-down ip link set wan down
+    post-down ip link del dev eth0.2
+
+auto eth0.10
+iface eth0.10 inet manual
+    pre-up ip link set lan1 master br53125
+    pre-up ip link set lan2 master br53125
+    pre-up ip link set lan3 master br53125
+    pre-up ip link set lan4 master br53125
+    pre-up bridge vlan add vid 10 dev lan1 pvid untagged
+    pre-up bridge vlan del vid 1 dev lan1
+    pre-up ip link set lan1 up
+    pre-up bridge vlan add vid 10 dev lan2 pvid untagged
+    pre-up bridge vlan del vid 1 dev lan2
+    pre-up ip link set lan2 up
+    pre-up bridge vlan add vid 10 dev lan3 pvid untagged
+    pre-up bridge vlan del vid 1 dev lan3
+    pre-up ip link set lan3 up
+    pre-up bridge vlan add vid 10 dev lan4 pvid untagged
+    pre-up bridge vlan del vid 1 dev lan4
+    pre-up ip link set lan4 up
+    post-down ip link set lan4 down
+    post-down ip link set lan3 down
+    post-down ip link set lan2 down
+    post-down ip link set lan1 down
+    post-down ip link del dev br53125
+    post-down ip link del dev eth0.10
+
+allow-hotplug wlan0
+iface wlan0 inet manual
+
+auto eth0.2
+iface eth0.2 inet dhcp
+
+auto br0
+iface br0 inet static
+    bridge_ports eth0.10 wlan0
+    address 192.168.1.1/24
