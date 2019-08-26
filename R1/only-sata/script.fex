@@ -1,0 +1,3 @@
+[sata_para]
+sata_used = 1
+sata_power_en = port:PB03<1><default><default><0>
