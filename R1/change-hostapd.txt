@@ -1,0 +1,4 @@
+You need to change the following in hostapd (if you use my interfaces script):
+interface=wlan0
+driver=nl80211
+bridge=br0
