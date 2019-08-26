@@ -10,12 +10,12 @@ Then it worked, but one HDD wasn't working (Toshiba). Another HDD from Toshiba w
 
 You can download the script with the following:
   
-  
+  wget https://raw.githubusercontent.com/mhognl/bpiStuff/master/R1/script.fex
   
 
 ### Banana Pi R1 custom interfaces without swconfig and changes to hostapd.conf
 I did research on the web and I've put together a custom interface without swconfig. You can change it to your likes.
 Download it with this:
   
-  
+  wget https://raw.githubusercontent.com/mhognl/bpiStuff/master/R1/interfaces
   
