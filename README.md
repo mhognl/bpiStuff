@@ -1,5 +1,5 @@
 # bpiStuff (Inactive)
-## I decided to stop a few of my projects. The reaseon is that there's more time for future projects.
+## I decided to stop a few of my projects. The reason is that there's more time for future projects.
 ## Scripts for Banana Pi
 
 ### Banana Pi R1 SATA support
